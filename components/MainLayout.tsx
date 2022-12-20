@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
 import { Box, Center, Spacer, Stack } from "@chakra-ui/react"
-import NavBar from "../components/NavBar"
+import NavBar from "./NavBar"
 import { useWallet } from "@solana/wallet-adapter-react"
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
@@ -19,7 +19,7 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
       <Box
         w="full"
         h="calc(100vh)"
-        bgImage={connected ? "" : "url(/home-background.svg)"}
+        bgImage={connected ? "" : "url(/images/home-background.svg)"}
         backgroundPosition="center"
       >
         <Stack w="full" h="calc(100vh)" justify="center">

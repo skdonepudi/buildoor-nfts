@@ -21,14 +21,13 @@ import {
   Metaplex,
   walletAdapterIdentity,
   CandyMachine,
-  CandyMachineV2
 } from "@metaplex-foundation/js"
 import { useRouter } from "next/router"
 
 const Connected: FC = () => {
   const { connection } = useConnection()
   const walletAdapter = useWallet()
-  const [candyMachine, setCandyMachine] = useState<CandyMachineV2>()
+  const [candyMachine, setCandyMachine] = useState<CandyMachine>()
   const [isMinting, setIsMinting] = useState(false)
 
   const metaplex = useMemo(() => {
@@ -36,20 +35,49 @@ const Connected: FC = () => {
   }, [connection, walletAdapter])
 
   useEffect(() => {
-    if (!metaplex) return
-
-    metaplex
-      .candyMachinesV2()
-      .findByAddress({
-        address: new PublicKey("8hjFHgmcTY4DKuaZHziKi3cDfV7cQVbPQJAHWf4uGyLR"),
-      })
-      .then((candyMachine) => {
-        setCandyMachine(candyMachine)
-      })
-      .catch((error) => {
-        alert(error)
-      })
+   handleInitialLoad();
   }, [metaplex])
+
+
+  const handleInitialLoad = useCallback(async () => {
+    if (!metaplex || !walletAdapter.publicKey) return
+
+    try {
+      const candymachine = await metaplex
+        .candyMachines()
+        .findByAddress({
+          address: new PublicKey(
+            process.env.NEXT_PUBLIC_CANDY_MACHINE_ADDRESS ?? "12HxZg9TXwmsLtJisyAZRVZwfm4BJRPyB37WJjjUxdnH"
+          ),
+        })
+        .run()
+
+      const nfts = await metaplex
+        .nfts()
+        .findAllByOwner({ owner: walletAdapter.publicKey })
+        .run()
+
+
+      const nft = nfts.find(
+        (nft) =>
+          nft.collection?.address.toBase58() ===
+          candymachine.collectionMintAddress?.toBase58()
+      )
+      if (nft?.model === "metadata") {
+        const metadata = await (await fetch(nft.uri)).json()
+        router.push(
+          `/stake?mint=${nft.mintAddress}&imageSrc=${metadata?.image}`
+        )
+        
+      }
+      
+
+      setCandyMachine(candyMachine)
+    } catch (error) {
+      alert(error)
+    }
+  }, [metaplex, walletAdapter])
+
 
   const router = useRouter()
 
@@ -63,9 +91,8 @@ const Connected: FC = () => {
 
       try {
         setIsMinting(true)
-        const nft = await metaplex.candyMachinesV2().mint({
-          candyMachine,
-    });
+        const nft = await metaplex.candyMachines().mint({ candyMachine }).run()
+
         router.push(`/newMint?mint=${nft.nft.address.toBase58()}`)
       } catch (error) {
         alert(error)
@@ -73,7 +100,7 @@ const Connected: FC = () => {
         setIsMinting(false)
       }
     },
-    [walletAdapter.connected, candyMachine, metaplex, router]
+    [metaplex, walletAdapter, candyMachine]
   )
 
   return (
@@ -98,16 +125,16 @@ const Connected: FC = () => {
         </VStack>
       </Container>
 
-      <HStack spacing={4}>
-        <Image src="images/avatar1.png" alt="" />
-        <Image src="images/avatar2.png" alt="" />
-        <Image src="images/avatar3.png" alt="" />
-        <Image src="images/avatar4.png" alt="" />
-        <Image src="images/avatar5.png" alt="" />
+      <HStack spacing={5}>
+        <Image src="/images/avatar1.png" alt="" />
+        <Image src="/images/avatar2.png" alt="" />
+        <Image src="/images/avatar3.png" alt="" />
+        <Image src="/images/avatar4.png" alt="" />
+        <Image src="/images/avatar5.png" alt="" />
       </HStack>
 
       <Button
-        bgColor="blue"
+        bgColor="accent"
         color="white"
         maxW="380px"
         onClick={handleClick}

@@ -15,7 +15,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <ConnectionProvider endpoint={url}>
-      <WalletProvider wallets={[phantom]}>
+      <WalletProvider wallets={[phantom]} autoConnect={true}>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

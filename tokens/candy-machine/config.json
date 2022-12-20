@@ -1,5 +1,5 @@
 {
-  "price": 0.2,
+  "price": 0.1,
   "number": 19,
   "gatekeeper": null,
   "creators": [
@@ -11,7 +11,7 @@
   "solTreasuryAccount": "iaSnNNU6GGsSsxP1SKrmPJNPmqLhdR6SU7TkfZzSb6j",
   "splTokenAccount": null,
   "splToken": null,
-  "goLiveDate": "2022-11-21T14:28:19.648811+00:00",
+  "goLiveDate": "2022-12-17T11:45:20.201209+00:00",
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,
@@ -20,7 +20,7 @@
   "retainAuthority": true,
   "isMutable": true,
   "symbol": "FDOG",
-  "sellerFeeBasisPoints": 100,
+  "sellerFeeBasisPoints": 0,
   "awsConfig": null,
   "nftStorageAuthToken": null,
   "shdwStorageAccount": null,
