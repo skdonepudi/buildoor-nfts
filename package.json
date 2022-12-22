@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "reset-candy-machine": "rm tokens/candy-machine/cache.json; cd tokens/candy-machine && sugar launch -r https://api.devnet.solana.com",
-    "create-bld-token": "ts-node tokens/bld/index.ts"
+    "create-bld-token": "ts-node tokens/bld/index.ts",
+    "create-gear-tokens": "ts-node tokens/gear/index.ts"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
@@ -23,6 +24,7 @@
     "@solana/wallet-adapter-react-ui": "^0.9.16",
     "@solana/wallet-adapter-wallets": "^0.18.6",
     "@solana/web3.js": "^1.54.0",
+    "@switchboard-xyz/switchboard-v2": "^0.0.173",
     "dotenv": "^16.0.2",
     "framer-motion": "^6.5.1",
     "next": "12.2.5",
