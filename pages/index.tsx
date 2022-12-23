@@ -69,7 +69,7 @@ const Home: NextPage = () => {
                 href="https://twitter.com/_buildspace"
                 isExternal
               >
-                @_buildspace
+                @_buildspace 💙
               </Link>
             </Text>
                 </HStack>

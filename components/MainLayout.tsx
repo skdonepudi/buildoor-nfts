@@ -62,10 +62,10 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
              | built with &nbsp;
               <Link
                 color="#00acee"
-                href="https://twitter.com/_buildspace"
+                href="https://twitter.com/_buildspace" 
                 isExternal
               >
-                @_buildspace
+                @_buildspace 💙
               </Link>
             </Text>
                 </HStack>
