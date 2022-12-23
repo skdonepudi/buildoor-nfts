@@ -110,7 +110,7 @@ const Connected: FC = () => {
   )
 
   return (
-    <VStack spacing={10}>
+    <VStack spacing={10} zIndex={20}>
       <Container>
         <VStack spacing={8}>
           <Heading
@@ -120,33 +120,34 @@ const Connected: FC = () => {
             noOfLines={1}
             textAlign="center"
           >
-            Welcome Buildoor.
+            Welcome Guardian.
           </Heading>
 
           <Text color="bodyText" fontSize="xl" textAlign="center">
-            Each buildoor is randomly generated and can be staked to receive
-            <Text as="b"> $BLD</Text>. Use your <Text as="b"> $BLD</Text> to
-            upgrade your buildoor and receive perks within the community!
+            Each NFT is randomly generated and can be staked to receive
+            <Text as="b"> $GG</Text>. Use your <Text as="b"> $GG</Text> to
+            upgrade your NFT and receive perks within the community!
           </Text>
         </VStack>
       </Container>
 
       <HStack spacing={5}>
-        <Image src="/images/avatar1.png" alt="" />
-        <Image src="/images/avatar2.png" alt="" />
-        <Image src="/images/avatar3.png" alt="" />
-        <Image src="/images/avatar4.png" alt="" />
-        <Image src="/images/avatar5.png" alt="" />
+        <Image boxSize={250} borderRadius={10} src="/images/01.png" alt="" />
+        <Image boxSize={250} borderRadius={10} src="/images/02.png" alt="" />
+        <Image boxSize={250} borderRadius={10} src="/images/03.png" alt="" />
+        <Image boxSize={250} borderRadius={10} src="/images/04.png" alt="" />
+        <Image boxSize={250} borderRadius={10} src="/images/05.png" alt="" />
       </HStack>
 
       <Button
-        bgColor="accent"
+        bgColor="#0000BB"
         color="white"
         maxW="380px"
         onClick={handleClick}
         isLoading={isMinting}
+        _hover={{ bgColor: "#0000FF" }}
       >
-        <Text>mint buildoor</Text>
+        <Text>Mint Galactic Guardian</Text>
       </Button>
     </VStack>
   )

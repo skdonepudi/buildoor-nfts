@@ -16,11 +16,11 @@ import {
   createCreateMetadataAccountV2Instruction,
 } from "@metaplex-foundation/mpl-token-metadata";
 
-const TOKEN_NAME = "BUILD";
-const TOKEN_SYMBOL = "BLD";
-const TOKEN_DESCRIPTION = "A token for buildoors";
-const TOKEN_IMAGE_NAME = "unicorn.jpg"; // Replace unicorn.png with your image name
-const TOKEN_IMAGE_PATH = `tokens/bld/assets/${TOKEN_IMAGE_NAME}`;
+const TOKEN_NAME = "Galactic Guardians";
+const TOKEN_SYMBOL = "GG";
+const TOKEN_DESCRIPTION = "A token of Galactic Guardians";
+const TOKEN_IMAGE_NAME = "logo.png"; // Replace unicorn.png with your image name
+const TOKEN_IMAGE_PATH = `tokens/gg/assets/${TOKEN_IMAGE_NAME}`;
 
 async function createBldToken(
   connection: web3.Connection,
@@ -113,7 +113,7 @@ async function createBldToken(
   );
 
   fs.writeFileSync(
-    "tokens/bld/cache.json",
+    "tokens/gg/cache.json",
     JSON.stringify({
       mint: tokenMint.toBase58(),
       imageUri: imageUri,

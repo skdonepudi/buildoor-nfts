@@ -1,8 +1,8 @@
 {
-    "name": "Faithful Dog #7",
-    "symbol": "FDOG",
-    "description": "The Faithful Dogs are the most loyal and friendly dogs.",
-    "image": "6.jpg",
+    "name": "Galactic Guardian #7",
+    "symbol": "GG",
+    "description": "The Galactic Guardians are the most dedicated and heroic protectors of the galaxy.",
+    "image": "6.png",
     "attributes": [
         {
             "trait_type": "accessory",
@@ -20,8 +20,8 @@
     "properties": {
         "files": [
             {
-                "uri": "6.jpg",
-                "type": "image/jpeg"
+                "uri": "6.png",
+                "type": "image/png"
             }
         ]
     }

@@ -59,7 +59,7 @@ async function createGear(
         .nfts()
         .uploadMetadata({
           name: assets[i],
-          description: "Gear that levels up your buildoor",
+          description: "Gear that levels up your Galactic Guardian",
           image: imageUri,
           attributes: [
             {

@@ -211,12 +211,12 @@ export const StakeOptionsDisplay = ({
       </Text>
       <VStack spacing={-1}>
         <Text color="white" as="b" fontSize="4xl">
-          {`${Number(bldTokenAccount?.amount ?? 0) / Math.pow(10, 2)} $BLD`}
+          {`${Number(bldTokenAccount?.amount ?? 0) / Math.pow(10, 2)} $GG`}
         </Text>
         <Text color="bodyText">
           {stakeAccount?.stakeState.staked
-            ? `${stakeAccount?.claimable().toPrecision(2)} $BLD earned`
-            : "earn $BLD by staking"}
+            ? `${stakeAccount?.claimable().toPrecision(2)} $GG earned`
+            : "earn $GG by staking"}
         </Text>
       </VStack>
       <Button
@@ -226,7 +226,7 @@ export const StakeOptionsDisplay = ({
         isLoading={isConfirmingTransaction}
       >
         <Text as="b">
-          {stakeAccount?.stakeState.staked ? "claim $BLD" : "stake buildoor"}
+          {stakeAccount?.stakeState.staked ? "claim $GG" : "Stake Galactic Guardian"}
         </Text>
       </Button>
       {stakeAccount?.stakeState.staked ? (

@@ -278,7 +278,7 @@ export const Lootbox = ({
           {mint
             ? "Redeem"
             : userAccountExists
-            ? `${availableLootbox} $BLD`
+            ? `${availableLootbox} $GG`
             : "Enable"}
         </Button>
       ) : (

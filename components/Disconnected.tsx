@@ -34,25 +34,35 @@ const Disconnected: FC = () => {
     )
   
     return (
-      <Container>
+      <Container zIndex={10}>
         <VStack spacing={20}>
-          <Heading
+        <Heading
             color="white"
             as="h1"
-            size="3xl"
+            size="2xl"
             noOfLines={2}
             textAlign="center"
           >
-            Mint your buildoor. Earn $BLD. Level up.
+           Galactic Guardians NFT Collection 
           </Heading>
+          <Text
+          fontSize={"22px"}
+          color={"white"}
+          textAlign="center">
+          Join the ranks of the Galactic Guardians and mint your own NFT - earn $GG and level up your collection!
+
+          </Text>
           <Button
-            bgColor="blue"
+            bgColor="#0000BB"
+            _hover={{
+                bgColor: "#0000FF",
+              }}
             color="white"
             maxW="380px"
             onClick={handleClick}
           >
             <HStack>
-              <Text>become a buildoor</Text>
+              <Text>Get a Galactic Guardian</Text>
               <ArrowForwardIcon />
             </HStack>
           </Button>

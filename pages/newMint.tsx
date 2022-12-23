@@ -1,6 +1,8 @@
 import type { NextPage } from "next"
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import MainLayout from "../components/MainLayout"
+
+
 import {
   Container,
   Heading,
@@ -29,8 +31,12 @@ const NewMint: NextPage<NewMintProps> = ({ mint }) => {
   const metaplex = useMemo(() => {
     return Metaplex.make(connection).use(walletAdapterIdentity(walletAdapter))
   }, [connection, walletAdapter])
+  const router = useRouter()
 
   useEffect(() => {
+    if(!walletAdapter.connected) {
+      router.push('/')
+    }
     metaplex
       .nfts()
       .findByMint({ mintAddress: mint })
@@ -43,8 +49,11 @@ const NewMint: NextPage<NewMintProps> = ({ mint }) => {
           })
       })
   }, [mint, metaplex, walletAdapter])
+ 
+  
 
-  const router = useRouter()
+
+  
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = useCallback(
     async (event) => {
@@ -55,15 +64,15 @@ const NewMint: NextPage<NewMintProps> = ({ mint }) => {
 
   return (
     <MainLayout>
-      <VStack spacing={20}>
+      <VStack spacing={20} zIndex={20}>
         <Container>
           <VStack spacing={8}>
             <Heading color="white" as="h1" size="2xl" textAlign="center">
-              😮 A new buildoor has appeared!
+              😮 A new Galactic Guardian has appeared!
             </Heading>
 
             <Text color="bodyText" fontSize="xl" textAlign="center">
-              Congratulations, you minted a lvl 1 buildoor! <br />
+              Congratulations, you minted a lvl 1 guardian! <br />
               Time to stake your character to earn rewards and level up.
             </Text>
           </VStack>
@@ -72,13 +81,13 @@ const NewMint: NextPage<NewMintProps> = ({ mint }) => {
         <Image boxSize='200px' objectFit='cover' src={metadata?.image ?? ""} alt="" />
 
         <Button
-          bgColor="accent"
+          bgColor="#0000bb"
           color="white"
           maxW="380px"
           onClick={handleClick}
         >
           <HStack>
-            <Text>stake my buildoor</Text>
+            <Text>Stake my Galactic Guardian</Text>
             <ArrowForwardIcon />
           </HStack>
         </Button>

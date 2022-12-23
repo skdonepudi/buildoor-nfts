@@ -1,0 +1,28 @@
+{
+    "name": "Galactic Guardian #20",
+    "symbol": "GG",
+    "description": "The Galactic Guardians are the most dedicated and heroic protectors of the galaxy.",
+    "image": "19.png",
+    "attributes": [
+        {
+            "trait_type": "accessory",
+            "value": "none"
+        },
+        {
+            "trait_type": "breed",
+            "value": "golden retriever"
+        },
+        {
+            "trait_type": "hair",
+            "value": "white"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "19.png",
+                "type": "image/png"
+            }
+        ]
+    }
+}

@@ -1,6 +1,6 @@
 {
   "price": 0.1,
-  "number": 19,
+  "number": 20,
   "gatekeeper": null,
   "creators": [
     {
@@ -11,7 +11,7 @@
   "solTreasuryAccount": "iaSnNNU6GGsSsxP1SKrmPJNPmqLhdR6SU7TkfZzSb6j",
   "splTokenAccount": null,
   "splToken": null,
-  "goLiveDate": "2022-12-17T11:45:20.201209+00:00",
+  "goLiveDate": "2022-12-22T09:52:00.053408+00:00",
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,
@@ -19,7 +19,7 @@
   "uploadMethod": "bundlr",
   "retainAuthority": true,
   "isMutable": true,
-  "symbol": "FDOG",
+  "symbol": "GG",
   "sellerFeeBasisPoints": 0,
   "awsConfig": null,
   "nftStorageAuthToken": null,

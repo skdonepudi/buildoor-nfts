@@ -21,6 +21,8 @@ import { GEAR_OPTIONS } from "../utils/constants"
 import { getAssociatedTokenAddress, getAccount } from "@solana/spl-token"
 import { Lootbox } from "../components/Lootbox"
 import { GearItem } from "../components/GearItem"
+import router from "next/router"
+
 
 const Stake: NextPage<StakeProps> = ({ mintAddress, imageSrc }) => {
   const [stakeAccount, setStakeAccount] = useState<StakeAccount>()
@@ -30,8 +32,15 @@ const Stake: NextPage<StakeProps> = ({ mintAddress, imageSrc }) => {
 
   const { connection } = useConnection()
   const walletAdapter = useWallet()
+  
 
   useEffect(() => {
+  if (!walletAdapter.connected) {
+    router.push('/')
+  }
+
+
+    
     const metaplex = Metaplex.make(connection).use(
       walletAdapterIdentity(walletAdapter)
     )
@@ -96,18 +105,18 @@ const Stake: NextPage<StakeProps> = ({ mintAddress, imageSrc }) => {
 
   return (
     <MainLayout>
-      <VStack spacing={7} justify="flex-start" align="flex-start">
+      <VStack zIndex={20} spacing={7} justify="flex-start" align="flex-start">
         <Heading color="white" as="h1" size="2xl">
-          Level up your buildoor
+          Level up your Galactic Guardian
         </Heading>
         <Text color="bodyText" fontSize="xl" textAlign="start" maxWidth="600px">
-          Stake your buildoor to earn 10 $BLD per day to get access to a
+          Stake your Galactic Guardian to earn 10 $GG per day to get access to a
           randomized loot box full of upgrades for your buildoor
         </Text>
         <HStack spacing={20} alignItems="flex-start">
           <VStack align="flex-start" minWidth="200px">
             <Flex direction="column">
-              <Image boxSize={200} objectFit={"cover"} src={imageSrc ?? ""} alt="buildoor nft" zIndex="1" />
+              <Image boxSize={200} objectFit={"cover"} src={imageSrc ?? ""} alt="Galactic Guardians nft" zIndex="1" />
               <Center
                 bgColor="secondaryPurple"
                 borderRadius="0 0 8px 8px"
