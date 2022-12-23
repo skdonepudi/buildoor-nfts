@@ -58,6 +58,16 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
                 @skdonepudi 
               </Link>
             </Text>
+            <Text>
+             | built with &nbsp;
+              <Link
+                color="#00acee"
+                href="https://twitter.com/_buildspace"
+                isExternal
+              >
+                @_buildspace
+              </Link>
+            </Text>
                 </HStack>
               </Box>
           </Center>
