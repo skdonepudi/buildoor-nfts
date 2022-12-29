@@ -19,26 +19,31 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
 
       <Box
         w="full"
-        h="calc(100vh)"
+        h={{
+          base: "full",
+          md: "100vh",
+
+        }}
         _before={{
+          
           content: '""',
           bgImage:
             "url(images/bg.png)",
           bgSize: "cover",
-          pos: "absolute",
+          position: "fixed",
           top: 0,
           right: 0,
           left: 0,
           bottom: 0,
-          opacity: 0.4,
-        }}
+          opacity: 0.4,     }}
+
       >
-        <Stack w="full" h="calc(100vh)" justify="center">
+        <Stack w="full" h="full" spacing={2} zIndex={10}>
           <NavBar />
 
           <Spacer />
 
-          <Center>{children}</Center>
+          <Center >{children}</Center>
 
           <Spacer />
 
@@ -58,7 +63,10 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
                 @skdonepudi 
               </Link>
             </Text>
-            <Text>
+            <Text display={{
+              base:"none",
+              md:"block"
+            }}>
              | built with &nbsp;
               <Link
                 color="#00acee"

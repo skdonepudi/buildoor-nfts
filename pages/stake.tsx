@@ -105,16 +105,45 @@ const Stake: NextPage<StakeProps> = ({ mintAddress, imageSrc }) => {
 
   return (
     <MainLayout>
-      <VStack zIndex={20} spacing={7} justify="flex-start" align="flex-start">
-        <Heading color="white" as="h1" size="2xl">
+      <VStack zIndex={20} spacing={7} justify="center" align="center">
+        <Heading color="white" as="h1" textAlign={{
+            base: "center",
+            md: "left"
+          }}
+         size={{
+          base: "lg",
+        }}>
           Level up your Galactic Guardian
         </Heading>
-        <Text color="bodyText" fontSize="xl" textAlign="start" maxWidth="600px">
+        <Text color="bodyText" fontSize="xl" textAlign="center" maxWidth="600px">
           Stake your Galactic Guardian to earn 10 $GG per day to get access to a
           randomized loot box full of upgrades for your buildoor
         </Text>
-        <HStack spacing={20} alignItems="flex-start">
-          <VStack align="flex-start" minWidth="200px">
+        <HStack spacing={{
+            base: 0,
+            md: 10
+          }}
+        align={{
+          base: "center",
+          md: "flex-start"
+        }}
+        justify={{
+          base: "center",
+          md: "flex-start"
+        }}
+        display={{
+          base: "block",
+          md: "flex"
+        }}>
+          <VStack align={{
+          base: "center",
+          md: "flex-start"
+        }}
+        marginBottom={{
+          base: 10,
+          md: 0
+        }}
+        minWidth="200px">
             <Flex direction="column">
               <Image boxSize={200} objectFit={"cover"} src={imageSrc ?? ""} alt="Galactic Guardians nft" zIndex="1" />
               <Center

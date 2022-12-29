@@ -204,7 +204,7 @@ export const StakeOptionsDisplay = ({
         {stakeAccount?.stakeState.staked
           ? daysStaked < 1
             ? "STAKED LESS THAN 1 DAY"
-            : `STAKED ${daysStaked} DAY${
+            : `STAKED ${daysStaked.toFixed(2)} DAY${
                 Math.floor(daysStaked) === 1 ? "" : "S"
               }`
           : "READY TO STAKE"}

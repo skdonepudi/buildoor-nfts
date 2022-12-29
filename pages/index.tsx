@@ -62,7 +62,10 @@ const Home: NextPage = () => {
                 @skdonepudi 
               </Link>
             </Text>
-            <Text>
+            <Text display={{
+              base: "none",
+              md: "block",
+            }}>
              | built with &nbsp;
               <Link
                 color="#00acee"

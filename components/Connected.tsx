@@ -63,6 +63,7 @@ const Connected: FC = () => {
           nft.collection?.address.toBase58() ===
           candyMachine.collectionMintAddress?.toBase58()
       )
+      console.log(nft)
       if (nft?.model === "metadata") {
         const metadata = await (await fetch(nft.uri)).json()
         router.push(
@@ -83,15 +84,12 @@ const Connected: FC = () => {
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = useCallback(
     async (event) => {
-      console.log("clicked")
       if (event.defaultPrevented) return
 
       if (!walletAdapter.connected) {
-        console.log("not connected")
         return
       }
       if ( !candyMachine) {
-        console.log("no candy machine")
         return
       }
 
@@ -110,13 +108,17 @@ const Connected: FC = () => {
   )
 
   return (
-    <VStack spacing={10} zIndex={20}>
+    <VStack spacing={5} zIndex={20}>
       <Container>
         <VStack spacing={8}>
           <Heading
             color="white"
             as="h1"
-            size="2xl"
+            size={{
+              base: "xl",
+              md: "2xl",
+
+            }}
             noOfLines={1}
             textAlign="center"
           >
@@ -131,13 +133,20 @@ const Connected: FC = () => {
         </VStack>
       </Container>
 
-      <HStack spacing={5}>
+      <HStack display={{
+          base: "none",
+          md: "flex",
+        }} spacing={5}>
         <Image boxSize={250} borderRadius={10} src="/images/01.png" alt="" />
         <Image boxSize={250} borderRadius={10} src="/images/02.png" alt="" />
         <Image boxSize={250} borderRadius={10} src="/images/03.png" alt="" />
         <Image boxSize={250} borderRadius={10} src="/images/04.png" alt="" />
         <Image boxSize={250} borderRadius={10} src="/images/05.png" alt="" />
       </HStack>
+      <Image display={{
+          base: "flex",
+          md: "none",
+          }}  boxSize={250} borderRadius={10} src="/images/04.png" alt="" />
 
       <Button
         bgColor="#0000BB"
